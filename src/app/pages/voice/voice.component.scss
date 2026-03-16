@@ -1,0 +1,142 @@
+.voice-container {
+  min-height: 100vh;
+  max-width: 420px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #0f172a;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.voice-header h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.voice-header p,
+.voice-subtitle {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.voice-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.mic-button {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+  transition:
+    transform 0.15s ease,
+    background 0.2s ease;
+}
+
+.mic-button:hover {
+  background: #1d4ed8;
+  transform: scale(1.05);
+}
+
+.mic-button:active {
+  transform: scale(0.95);
+}
+
+.hint {
+  font-size: 20px;
+  opacity: 0.85;
+}
+
+.listening-text {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #fca5a5;
+  font-weight: 700;
+}
+
+.voice-response {
+  margin-top: 30px;
+  background: #1e293b;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.response-text {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.mic-button.listening {
+  background: #ef4444;
+  box-shadow: 0 0 0 10px rgba(239, 68, 68, 0.2);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 25px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+.voice-back {
+  margin-bottom: 15px;
+}
+
+.back-button {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.2s ease;
+}
+
+.back-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+}
+
+.back-button:active {
+  transform: scale(0.96);
+}
+
+.reminder-time {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.reminder-text {
+  font-size: 16px;
+  opacity: 0.85;
+  margin-bottom: 8px;
+}

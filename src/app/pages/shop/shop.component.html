@@ -1,0 +1,30 @@
+<div class="shop-container">
+  <div class="voice-back">
+    <button routerLink="/" class="back-button">← Return to Home</button>
+  </div>
+
+  <h1>Buy Essentials</h1>
+  <p class="subtitle">
+    Choose what you need and we will help you order safely.
+  </p>
+
+  <button class="shop-button groceries" (click)="orderGroceries()">
+    🛒 Order Groceries
+  </button>
+  <p class="shop-help">Open a trusted grocery store website</p>
+
+  <button class="shop-button medicine" (click)="orderMedicine()">
+    💊 Order Medicine
+  </button>
+  <p class="shop-help">Open a pharmacy website to order medicine</p>
+
+  <button class="shop-button daily" (click)="orderDailyNeeds()">
+    🥤 Daily Needs
+  </button>
+  <p class="shop-help">Shop everyday household items online</p>
+
+  <button class="shop-button family" (click)="callFamily()">
+    📞 Call Family to Help
+  </button>
+  <p class="shop-help">Call a trusted family member for help</p>
+</div>

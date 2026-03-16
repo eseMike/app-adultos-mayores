@@ -1,0 +1,108 @@
+.shop-container {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.shop-container h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.shop-help {
+  font-size: 14px;
+  color: #777;
+  margin-top: -6px;
+  margin-bottom: 14px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.4;
+}
+
+/* Buttons */
+
+.shop-button {
+  width: 90%;
+  max-width: 420px;
+  margin: 12px auto;
+  display: block;
+  padding: 20px;
+  font-size: 20px;
+  min-height: 60px;
+  font-weight: 600;
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.shop-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
+}
+
+.shop-button:active {
+  transform: scale(0.97);
+}
+
+/* Button colors */
+
+.groceries {
+  background: #2ecc71;
+  color: white;
+}
+
+.medicine {
+  background: #3498db;
+  color: white;
+}
+
+.daily {
+  background: #f1c40f;
+  color: #222;
+}
+
+.family {
+  background: #9b59b6;
+  color: white;
+}
+
+/* Return Home button (same style used across the app) */
+
+.voice-back {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  background: linear-gradient(135deg, #4f8cff, #2d6cdf);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.back-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+}
+
+.back-button:active {
+  transform: scale(0.96);
+}

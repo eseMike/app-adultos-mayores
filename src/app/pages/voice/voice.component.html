@@ -1,0 +1,38 @@
+<div class="voice-container">
+  <div class="voice-back">
+    <button routerLink="/" class="back-button">← Return to Home</button>
+  </div>
+  <div class="voice-header">
+    <h1>Voice Assistant</h1>
+    <p class="voice-subtitle">Tap the microphone and tell me what you need.</p>
+  </div>
+
+  <div class="voice-body">
+    <div
+      class="mic-button"
+      [class.listening]="listening"
+      (click)="startListening()"
+    >
+      🎤
+    </div>
+    <p class="hint">Tap the microphone and speak</p>
+    <p class="listening-text" *ngIf="listening">Listening...</p>
+  </div>
+
+  <div class="voice-response" *ngIf="transcript || response">
+    <p class="response-text" *ngIf="transcript">You said: "{{ transcript }}"</p>
+
+    <p class="response-text" *ngIf="response">
+      {{ response }}
+    </p>
+  </div>
+
+  <div class="reminders" *ngIf="reminderService.getReminders().length > 0">
+    <h3>Your reminders</h3>
+
+    <div class="reminder-item" *ngFor="let r of reminderService.getReminders()">
+      <div class="reminder-time">{{ r.time }}</div>
+      <div class="reminder-text">{{ r.text }}</div>
+    </div>
+  </div>
+</div>
