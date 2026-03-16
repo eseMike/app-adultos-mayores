@@ -19,23 +19,36 @@
 .transport-options {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 }
 
 .transport-button {
   display: block;
-  padding: 20px;
-  font-size: 22px;
+  padding: 28px;
+  font-size: 24px;
   font-weight: bold;
   border-radius: 16px;
   text-decoration: none;
   color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.1s ease;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.2s ease;
+}
+
+.transport-button:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 .transport-button:active {
   transform: scale(0.96);
+}
+
+.button-sub {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  display: block;
+  margin-top: 4px;
 }
 
 .uber {

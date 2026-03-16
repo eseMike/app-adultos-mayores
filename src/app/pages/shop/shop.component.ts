@@ -19,6 +19,11 @@ export class ShopComponent {
   }
 
   callFamily() {
-    window.location.href = 'tel:+1234567890';
+    if (window.confirm('¿Está seguro que desea llamar a este familiar?')) {
+      if (navigator.vibrate) {
+        navigator.vibrate(200);
+      }
+      window.location.href = 'tel:+1234567890';
+    }
   }
 }

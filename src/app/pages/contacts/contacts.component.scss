@@ -43,7 +43,7 @@
   background: #f5f5f5;
   border-radius: 14px;
   padding: 20px;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
@@ -61,11 +61,12 @@
 .message-button {
   flex: 1;
   text-align: center;
-  padding: 16px;
+  padding: 20px;
   font-size: 20px;
   border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .call-button {
@@ -81,4 +82,11 @@
 .call-button:active,
 .message-button:active {
   transform: scale(0.97);
+}
+
+.action-sub {
+  font-size: 14px;
+  color: #ffffffcc;
+  display: block;
+  margin-top: 4px;
 }

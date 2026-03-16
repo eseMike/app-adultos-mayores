@@ -112,8 +112,15 @@
 }
 
 .nav-item {
-  font-size: 14px;
+  font-size: 18px;
   color: #374151;
+  padding: 12px 20px;
+  border-radius: 12px;
+}
+
+.nav-item:active {
+  transform: scale(0.97);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .voice-assistant {

@@ -7,22 +7,30 @@
   <div class="contact-card">
     <h3>Daughter</h3>
     <div class="contact-actions">
-      <a href="tel:1234567890" class="call-button">📞 Call</a>
-      <a href="sms:1234567890" class="message-button">💬 Message</a>
+      <button class="call-button" (click)="callContact('1234567890')">
+        📞 Call <span class="action-sub">Tap to call</span>
+      </button>
+      <button class="message-button" (click)="messageContact('1234567890')">
+        💬 Message <span class="action-sub">Tap to message</span>
+      </button>
     </div>
   </div>
 
   <div class="contact-card">
     <h3>Doctor</h3>
     <div class="contact-actions">
-      <a href="tel:1234567890" class="call-button">📞 Call</a>
+      <button class="call-button" (click)="callContact('1234567890')">
+        📞 Call <span class="action-sub">Tap to call</span>
+      </button>
     </div>
   </div>
 
   <div class="contact-card">
     <h3>Neighbor</h3>
     <div class="contact-actions">
-      <a href="tel:1234567890" class="call-button">📞 Call</a>
+      <button class="call-button" (click)="callContact('1234567890')">
+        📞 Call <span class="action-sub">Tap to call</span>
+      </button>
     </div>
   </div>
 </div>

@@ -11,6 +11,7 @@
   <div class="transport-options">
     <a href="https://m.uber.com" target="_blank" class="transport-button uber">
       🚗 Request Uber
+      <span class="button-sub">Book a ride through Uber</span>
     </a>
 
     <a
@@ -19,10 +20,12 @@
       class="transport-button taxi"
     >
       🚕 Find Taxi
+      <span class="button-sub">Find a nearby taxi service</span>
     </a>
 
-    <a href="tel:1234567890" class="transport-button family">
+    <button class="transport-button family" (click)="callFamily('1234567890')">
       👨‍👩‍👧 Call Family for Pickup
-    </a>
+      <span class="button-sub">Call your family for pickup</span>
+    </button>
   </div>
 </div>

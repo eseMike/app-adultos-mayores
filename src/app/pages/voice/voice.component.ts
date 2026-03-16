@@ -11,6 +11,7 @@ export class VoiceComponent {
   transcript: string = '';
   response: string = '';
   listening: boolean = false;
+  private vibrationInterval: any;
 
   constructor(
     private zone: NgZone,
@@ -31,6 +32,9 @@ export class VoiceComponent {
           // provide vibration feedback when listening starts
           if (navigator.vibrate) {
             navigator.vibrate(120);
+            this.vibrationInterval = setInterval(() => {
+              navigator.vibrate(120);
+            }, 300);
           }
         });
       };
@@ -39,6 +43,10 @@ export class VoiceComponent {
         console.error('Voice recognition error:', event.error);
         this.zone.run(() => {
           this.listening = false;
+          if (this.vibrationInterval) {
+            clearInterval(this.vibrationInterval);
+            this.vibrationInterval = null;
+          }
         });
       };
 
@@ -47,6 +55,10 @@ export class VoiceComponent {
 
         this.zone.run(() => {
           this.listening = false;
+          if (this.vibrationInterval) {
+            clearInterval(this.vibrationInterval);
+            this.vibrationInterval = null;
+          }
           this.transcript = text;
           this.generateResponse(text);
           // speak the response out loud for accessibility
@@ -58,6 +70,15 @@ export class VoiceComponent {
 
   startListening() {
     if (this.recognition) {
+      this.zone.run(() => {
+        this.listening = true;
+        if (navigator.vibrate) {
+          navigator.vibrate(120);
+          this.vibrationInterval = setInterval(() => {
+            navigator.vibrate(120);
+          }, 300);
+        }
+      });
       this.recognition.start();
     }
   }
