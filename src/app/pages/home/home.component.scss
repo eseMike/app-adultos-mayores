@@ -1,12 +1,14 @@
 .home-container {
   min-height: 100vh;
-  max-width: 420px;
+  max-width: 420px; // limite para móviles y tablet
   margin: 0 auto;
+  padding: 0 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background: #f4f6f8;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
 }
 
 .header {
@@ -30,6 +32,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .full-width {
@@ -38,16 +41,16 @@
 
 .menu-card {
   background: #e7f0f6;
-  border-radius: 18px;
-  padding: 32px 20px;
-  text-align: center;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
-  cursor: pointer;
-  min-height: 120px;
+  border-radius: 20px;
+  padding: 40px 24px;
+  min-height: 140px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
   transition:
     transform 0.1s ease,
     box-shadow 0.1s ease;
@@ -58,23 +61,21 @@
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
 }
 
-.card-icon {
-  font-size: 44px;
-  margin-bottom: 8px;
-  line-height: 1;
+.menu-card .card-icon {
+  font-size: 50px;
+  margin-bottom: 12px;
 }
 
-.card-title {
-  margin-bottom: 8px;
-  font-size: 20px;
-  color: #111827;
-  font-weight: 600;
+.menu-card .card-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
 .menu-card p {
-  font-size: 16px;
+  font-size: 18px;
+  line-height: 1.5;
   color: #374151;
-  line-height: 1.4;
 }
 
 .menu-card.emergency {
@@ -109,6 +110,12 @@
   padding: 15px 0;
   background: white;
   border-top: 1px solid #e5e7eb;
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  max-width: 100%;
+  overflow-x: auto; // permitir scroll horizontal si es necesario
+  box-sizing: border-box;
 }
 
 .nav-item {
@@ -152,4 +159,26 @@
 .voice-subtitle {
   font-size: 14px;
   color: #6b7280;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: 1fr; // una columna
+    gap: 20px;
+    padding: 16px;
+  }
+  .menu-card {
+    padding: 36px 20px;
+    min-height: 130px;
+  }
+  .menu-card .card-icon {
+    font-size: 46px;
+  }
+  .menu-card .card-title {
+    font-size: 20px;
+  }
+  .menu-card p {
+    font-size: 16px;
+  }
 }

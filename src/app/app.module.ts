@@ -1,8 +1,11 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgModule } from '@angular/core';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+// Componentes
 import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
@@ -11,6 +14,10 @@ import { EmergencyComponent } from './pages/emergency/emergency.component';
 import { TravelComponent } from './pages/travel/travel.component';
 import { ShopComponent } from './pages/shop/shop.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
+
+// Traducciones
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpLoaderFactory } from './core/translate-loader.factory';
 
 @NgModule({
   declarations: [
@@ -22,13 +29,23 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     EmergencyComponent,
     TravelComponent,
     ShopComponent,
-    ContactsComponent
+    ContactsComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule, // Debe ir antes de TranslateModule
+    AppRoutingModule,
+    FormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      defaultLanguage: 'es',
+    }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

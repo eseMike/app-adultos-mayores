@@ -1,1 +1,25 @@
-<p>navbar works!</p>
+<div class="navbar-container">
+  <div class="navbar-content">
+    <div class="navbar-left">
+      <img
+        src="./../../../assets/SeniorVital.png"
+        alt="SeniorVital Logo"
+        class="logo"
+      />
+    </div>
+    <div class="navbar-right">
+      <label for="language" class="language-label">Language:</label>
+      <select
+        id="language"
+        class="language-select"
+        [(ngModel)]="selectedLanguage"
+        (change)="changeLanguage(selectedLanguage)"
+      >
+        <option value="es">Español</option>
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+      </select>
+    </div>
+  </div>
+</div>

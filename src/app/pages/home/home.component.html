@@ -1,53 +1,57 @@
 <div class="home-container">
   <div class="header">
     <img src="assets/SeniorVital.png" alt="SeniorVital logo" class="logo" />
-    <h1>What do you need today?</h1>
+    <h1>{{ "HOME" | translate }}</h1>
   </div>
 
   <div class="menu-grid">
     <div class="menu-card emergency full-width" routerLink="/emergency">
       <div class="card-icon">🚨</div>
-      <h3 class="card-title">Emergency Help</h3>
-      <p>Call a trusted contact quickly</p>
+      <h3 class="card-title">{{ "EMERGENCY_HELP" | translate }}</h3>
+      <p>{{ "EMERGENCY_HELP_DESC" | translate }}</p>
     </div>
 
     <div class="menu-card card-medicine" routerLink="/voice">
       <div class="card-icon">🎤</div>
-      <h3 class="card-title">Medicine Reminder</h3>
-      <p>Set reminders for medications</p>
+      <h3 class="card-title">{{ "MEDICINE_REMINDER" | translate }}</h3>
+      <p>{{ "MEDICINE_REMINDER_DESC" | translate }}</p>
     </div>
 
     <div class="menu-card card-contacts" routerLink="/contacts">
       <div class="card-icon">📞</div>
-      <h3 class="card-title">Contacts</h3>
-      <p>Call or message your trusted people</p>
+      <h3 class="card-title">{{ "CONTACTS" | translate }}</h3>
+      <p>{{ "CONTACTS_DESC" | translate }}</p>
     </div>
 
     <div class="menu-card card-travel" routerLink="/travel">
       <div class="card-icon">🚗</div>
-      <h3 class="card-title">Book Travel</h3>
-      <p>Get a ride</p>
+      <h3 class="card-title">{{ "BOOK_TRAVEL" | translate }}</h3>
+      <p>{{ "BOOK_TRAVEL_DESC" | translate }}</p>
     </div>
 
     <div class="menu-card card-shop" routerLink="/shop">
       <div class="card-icon">🛒</div>
-      <h3 class="card-title">Buy Online</h3>
-      <p>Order essentials safely</p>
+      <h3 class="card-title">{{ "BUY_ONLINE" | translate }}</h3>
+      <p>{{ "BUY_ONLINE_DESC" | translate }}</p>
     </div>
   </div>
 
   <div class="voice-assistant">
     <div class="voice-icon">🎙️</div>
     <div class="voice-text">
-      <div class="voice-title">Ask SeniorVital</div>
-      <div class="voice-subtitle">Tap and speak for help</div>
+      <div class="voice-title">{{ "ASK_SENIORVITAL" | translate }}</div>
+      <div class="voice-subtitle">{{ "VOICE_SUBTITLE" | translate }}</div>
     </div>
   </div>
 
   <div class="bottom-nav">
-    <a class="nav-item" routerLink="/home">Home</a>
-    <a class="nav-item" routerLink="/reminders">Reminders</a>
-    <a class="nav-item" routerLink="/vitals">Vitals</a>
-    <a class="nav-item" routerLink="/messages">Messages</a>
+    <a class="nav-item" routerLink="/home">{{ "NAV_HOME" | translate }}</a>
+    <a class="nav-item" routerLink="/reminders">{{
+      "NAV_REMINDERS" | translate
+    }}</a>
+    <a class="nav-item" routerLink="/vitals">{{ "NAV_VITALS" | translate }}</a>
+    <a class="nav-item" routerLink="/messages">{{
+      "NAV_MESSAGES" | translate
+    }}</a>
   </div>
 </div>

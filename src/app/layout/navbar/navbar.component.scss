@@ -1,0 +1,50 @@
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* logo a la izquierda, selector a la derecha */
+  gap: 2rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  flex-wrap: wrap; /* permite que se acomode en pantallas pequeñas */
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+}
+
+.language-selector {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+  margin-top: 0.5rem; /* para mobile */
+}
+
+.language-label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+  color: #000;
+}
+
+.language-select {
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #000;
+  background-color: #fff;
+  color: #000;
+}
+
+@media (min-width: 768px) {
+  .navbar-container {
+    flex-wrap: nowrap;
+  }
+  .language-selector {
+    margin-top: 0;
+  }
+}
