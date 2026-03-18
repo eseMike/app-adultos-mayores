@@ -1,35 +1,41 @@
 <div class="contacts-container">
   <div class="voice-back">
-    <button routerLink="/" class="back-button">← Return to Home</button>
+    <button routerLink="/" class="back-button">
+      {{ "RETURN_HOME" | translate }}
+    </button>
   </div>
-  <h2>Contacts</h2>
+  <h2>{{ "CONTACTS" | translate }}</h2>
 
   <div class="contact-card">
-    <h3>Daughter</h3>
+    <h3>{{ "DAUGHTER" | translate }}</h3>
     <div class="contact-actions">
       <button class="call-button" (click)="callContact('1234567890')">
-        📞 Call <span class="action-sub">Tap to call</span>
+        📞 {{ "CALL" | translate }}
+        <span class="action-sub">{{ "TAP_TO_CALL" | translate }}</span>
       </button>
       <button class="message-button" (click)="messageContact('1234567890')">
-        💬 Message <span class="action-sub">Tap to message</span>
+        💬 {{ "MESSAGE" | translate }}
+        <span class="action-sub">{{ "TAP_TO_MESSAGE" | translate }}</span>
       </button>
     </div>
   </div>
 
   <div class="contact-card">
-    <h3>Doctor</h3>
+    <h3>{{ "DOCTOR" | translate }}</h3>
     <div class="contact-actions">
       <button class="call-button" (click)="callContact('1234567890')">
-        📞 Call <span class="action-sub">Tap to call</span>
+        📞 {{ "CALL" | translate }}
+        <span class="action-sub">{{ "TAP_TO_CALL" | translate }}</span>
       </button>
     </div>
   </div>
 
   <div class="contact-card">
-    <h3>Neighbor</h3>
+    <h3>{{ "NEIGHBOR" | translate }}</h3>
     <div class="contact-actions">
       <button class="call-button" (click)="callContact('1234567890')">
-        📞 Call <span class="action-sub">Tap to call</span>
+        📞 {{ "CALL" | translate }}
+        <span class="action-sub">{{ "TAP_TO_CALL" | translate }}</span>
       </button>
     </div>
   </div>

@@ -16,7 +16,11 @@ import { ShopComponent } from './pages/shop/shop.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 
 // Traducciones
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import {
+  TranslateModule,
+  TranslateLoader,
+  TranslateService,
+} from '@ngx-translate/core';
 import { HttpLoaderFactory } from './core/translate-loader.factory';
 
 @NgModule({
@@ -33,7 +37,7 @@ import { HttpLoaderFactory } from './core/translate-loader.factory';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule, // Debe ir antes de TranslateModule
+    HttpClientModule,
     AppRoutingModule,
     FormsModule,
     TranslateModule.forRoot({
@@ -48,4 +52,25 @@ import { HttpLoaderFactory } from './core/translate-loader.factory';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private translate: TranslateService) {
+    // Idiomas disponibles
+    this.translate.addLangs(['es', 'en', 'fr', 'de']);
+
+    // Leer idioma guardado en localStorage o usar el navegador
+    const savedLang = localStorage.getItem('appLang');
+    const browserLang = this.translate.getBrowserLang() || 'es';
+    const langToUse =
+      savedLang ||
+      (['es', 'en', 'fr', 'de'].includes(browserLang) ? browserLang : 'es');
+
+    // Establecer idioma
+    this.translate.setDefaultLang('es');
+    this.translate.use(langToUse);
+
+    // Guardar cambios de idioma automáticamente
+    this.translate.onLangChange.subscribe((event) => {
+      localStorage.setItem('appLang', event.lang);
+    });
+  }
+}

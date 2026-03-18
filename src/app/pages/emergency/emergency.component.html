@@ -1,35 +1,35 @@
 <div class="emergency-container">
   <div class="voice-back">
-    <button routerLink="/" class="back-button">← Return to Home</button>
+    <button routerLink="/" class="back-button">
+      {{ "RETURN_HOME" | translate }}
+    </button>
   </div>
-  <h1>Emergency</h1>
+  <h1>{{ "EMERGENCY_TITLE" | translate }}</h1>
 
-  <p class="emergency-description">
-    Press the button below to immediately call your main emergency contact.
-  </p>
+  <p class="emergency-description">{{ "EMERGENCY_DESC" | translate }}</p>
 
-  <p class="emergency-hint">This will start a phone call right away.</p>
+  <p class="emergency-hint">{{ "EMERGENCY_HINT" | translate }}</p>
 
   <button class="emergency-button" (click)="confirmCall('1234567890')">
-    🚨 CALL FOR HELP
+    {{ "CALL_FOR_HELP" | translate }}
   </button>
 
   <div class="emergency-contacts">
-    <h3>Other Emergency Contacts</h3>
+    <h3>{{ "OTHER_CONTACTS" | translate }}</h3>
 
     <a class="contact-link" (click)="confirmCall('1234567890')">
-      📞 Daughter
-      <span class="contact-sub">Tap to call</span>
+      {{ "DAUGHTER" | translate }}
+      <span class="contact-sub">{{ "TAP_TO_CALL" | translate }}</span>
     </a>
 
     <a class="contact-link" (click)="confirmCall('1234567890')">
-      📞 Doctor
-      <span class="contact-sub">Tap to call</span>
+      {{ "DOCTOR" | translate }}
+      <span class="contact-sub">{{ "TAP_TO_CALL" | translate }}</span>
     </a>
 
     <a class="contact-link" (click)="confirmCall('1234567890')">
-      📞 Neighbor
-      <span class="contact-sub">Tap to call</span>
+      {{ "NEIGHBOR" | translate }}
+      <span class="contact-sub">{{ "TAP_TO_CALL" | translate }}</span>
     </a>
   </div>
 </div>

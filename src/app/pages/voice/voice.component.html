@@ -1,10 +1,12 @@
 <div class="voice-container">
   <div class="voice-back">
-    <button routerLink="/" class="back-button">← Return to Home</button>
+    <button routerLink="/" class="back-button">
+      {{ "RETURN_HOME" | translate }}
+    </button>
   </div>
   <div class="voice-header">
-    <h1>Voice Assistant</h1>
-    <p class="voice-subtitle">Tap the microphone and tell me what you need.</p>
+    <h1>{{ "VOICE_ASSISTANT" | translate }}</h1>
+    <p class="voice-subtitle">{{ "VOICE_SUBTITLE" | translate }}</p>
   </div>
 
   <div class="voice-body">
@@ -13,14 +15,18 @@
       [class.listening]="listening"
       (click)="startListening()"
     >
-      🎤
+      {{ "MIC_ICON" | translate }}
     </div>
-    <p class="hint">Tap the microphone and speak</p>
-    <p class="listening-text" *ngIf="listening">Listening...</p>
+    <p class="hint">{{ "MIC_HINT" | translate }}</p>
+    <p class="listening-text" *ngIf="listening">
+      {{ "LISTENING" | translate }}
+    </p>
   </div>
 
   <div class="voice-response" *ngIf="transcript || response">
-    <p class="response-text" *ngIf="transcript">You said: "{{ transcript }}"</p>
+    <p class="response-text" *ngIf="transcript">
+      {{ "YOU_SAID" | translate }}: "{{ transcript }}"
+    </p>
 
     <p class="response-text" *ngIf="response">
       {{ response }}
@@ -28,7 +34,7 @@
   </div>
 
   <div class="reminders" *ngIf="reminderService.getReminders().length > 0">
-    <h3>Your reminders</h3>
+    <h3>{{ "REMINDERS" | translate }}</h3>
 
     <div class="reminder-item" *ngFor="let r of reminderService.getReminders()">
       <div class="reminder-time">{{ r.time }}</div>

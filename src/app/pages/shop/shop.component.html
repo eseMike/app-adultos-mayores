@@ -1,30 +1,30 @@
 <div class="shop-container">
   <div class="voice-back">
-    <button routerLink="/" class="back-button">← Return to Home</button>
+    <button routerLink="/" class="back-button">
+      {{ "RETURN_HOME" | translate }}
+    </button>
   </div>
 
-  <h1>Buy Essentials</h1>
-  <p class="subtitle">
-    Choose what you need and we will help you order safely.
-  </p>
+  <h1>{{ "BUY_ESSENTIALS" | translate }}</h1>
+  <p class="subtitle">{{ "SHOP_SUBTITLE" | translate }}</p>
 
   <button class="shop-button groceries" (click)="orderGroceries()">
-    🛒 Order Groceries
-    <span class="button-sub">Open a trusted grocery store website</span>
+    🛒 {{ "ORDER_GROCERIES" | translate }}
+    <span class="button-sub">{{ "ORDER_GROCERIES_SUB" | translate }}</span>
   </button>
 
   <button class="shop-button medicine" (click)="orderMedicine()">
-    💊 Order Medicine
-    <span class="button-sub">Open a pharmacy website to order medicine</span>
+    💊 {{ "ORDER_MEDICINE" | translate }}
+    <span class="button-sub">{{ "ORDER_MEDICINE_SUB" | translate }}</span>
   </button>
 
   <button class="shop-button daily" (click)="orderDailyNeeds()">
-    🥤 Daily Needs
-    <span class="button-sub">Shop everyday household items online</span>
+    🥤 {{ "DAILY_NEEDS" | translate }}
+    <span class="button-sub">{{ "DAILY_NEEDS_SUB" | translate }}</span>
   </button>
 
   <button class="shop-button family" (click)="callFamily()">
-    📞 Call Family to Help
-    <span class="button-sub">Call a trusted family member for help</span>
+    📞 {{ "CALL_FAMILY" | translate }}
+    <span class="button-sub">{{ "CALL_FAMILY_SUB" | translate }}</span>
   </button>
 </div>

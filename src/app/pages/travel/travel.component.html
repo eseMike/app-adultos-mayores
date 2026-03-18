@@ -1,17 +1,17 @@
 <div class="travel-container">
   <div class="voice-back">
-    <button routerLink="/" class="back-button">← Return to Home</button>
+    <button routerLink="/" class="back-button">
+      {{ "RETURN_HOME" | translate }}
+    </button>
   </div>
-  <h1>Request Transport</h1>
+  <h1>{{ "BOOK_TRAVEL" | translate }}</h1>
 
-  <p class="travel-description">
-    Choose how you would like to request transportation.
-  </p>
+  <p class="travel-description">{{ "BOOK_TRAVEL_DESC" | translate }}</p>
 
   <div class="transport-options">
     <a href="https://m.uber.com" target="_blank" class="transport-button uber">
-      🚗 Request Uber
-      <span class="button-sub">Book a ride through Uber</span>
+      🚗 {{ "REQUEST_UBER" | translate }}
+      <span class="button-sub">{{ "REQUEST_UBER_SUB" | translate }}</span>
     </a>
 
     <a
@@ -19,13 +19,13 @@
       target="_blank"
       class="transport-button taxi"
     >
-      🚕 Find Taxi
-      <span class="button-sub">Find a nearby taxi service</span>
+      🚕 {{ "FIND_TAXI" | translate }}
+      <span class="button-sub">{{ "FIND_TAXI_SUB" | translate }}</span>
     </a>
 
     <button class="transport-button family" (click)="callFamily('1234567890')">
-      👨‍👩‍👧 Call Family for Pickup
-      <span class="button-sub">Call your family for pickup</span>
+      👨‍👩‍👧 {{ "CALL_FAMILY" | translate }}
+      <span class="button-sub">{{ "CALL_FAMILY_SUB" | translate }}</span>
     </button>
   </div>
 </div>
