@@ -44,8 +44,9 @@
   cursor: pointer;
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
   transition:
-    transform 0.15s ease,
-    background 0.2s ease;
+    transform 0.2s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
   padding: 20px; /* Increase touch area */
   position: relative; /* Added for pulse waves */
   overflow: visible; /* Allow pulse waves to be visible */
@@ -72,6 +73,14 @@
   font-weight: 700;
 }
 
+.processing-text {
+  margin-top: 10px;
+  font-size: 20px;
+  color: #c4b5fd;
+  font-weight: 700;
+  animation: thinking 1.5s infinite ease-in-out;
+}
+
 .voice-response {
   margin-top: 30px;
   background: #1e293b;
@@ -86,8 +95,14 @@
 
 .mic-button.listening {
   background: #ef4444;
-  box-shadow: 0 0 0 15px rgba(239, 68, 68, 0.3);
-  animation: pulse 1.2s infinite;
+  box-shadow: 0 0 0 10px rgba(239, 68, 68, 0.25);
+  animation: pulse 1.8s infinite ease-in-out;
+}
+
+.mic-button.processing {
+  background: #7c3aed;
+  box-shadow: 0 0 0 10px rgba(124, 58, 237, 0.25);
+  animation: pulse-processing 2s infinite ease-in-out;
 }
 
 .mic-button.listening::before,
@@ -102,21 +117,21 @@
   border: 2px solid #ef4444;
   transform: translate(-50%, -50%) scale(1);
   opacity: 0.6;
-  animation: pulse-wave 2.4s infinite ease-out;
+  animation: pulse-wave 3s infinite ease-out;
   pointer-events: none;
   z-index: -1;
 }
 
 .mic-button.listening::after {
-  animation-delay: 1.2s;
+  animation-delay: 1.5s;
 }
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.8);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.6);
   }
-  70% {
-    box-shadow: 0 0 0 30px rgba(239, 68, 68, 0);
+  50% {
+    box-shadow: 0 0 0 18px rgba(239, 68, 68, 0.15);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
@@ -126,10 +141,10 @@
 @keyframes pulse-wave {
   0% {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 0.6;
+    opacity: 0.5;
   }
   100% {
-    transform: translate(-50%, -50%) scale(1.8);
+    transform: translate(-50%, -50%) scale(1.6);
     opacity: 0;
   }
 }
@@ -174,4 +189,26 @@
   font-size: 16px;
   opacity: 0.85;
   margin-bottom: 8px;
+}
+
+@keyframes thinking {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-processing {
+  0% {
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgba(124, 58, 237, 0.15);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(124, 58, 237, 0);
+  }
 }

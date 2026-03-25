@@ -13,13 +13,20 @@
     <div
       class="mic-button"
       [class.listening]="listening"
+      [class.processing]="isProcessing"
       (click)="startListening()"
     >
       {{ "MIC_ICON" | translate }}
     </div>
-    <p class="hint">{{ "MIC_HINT" | translate }}</p>
+    <p class="hint" *ngIf="!listening && !isProcessing">
+      {{ "MIC_HINT" | translate }}
+    </p>
     <p class="listening-text" *ngIf="listening">
       {{ "LISTENING" | translate }}
+    </p>
+
+    <p class="processing-text" *ngIf="isProcessing">
+      {{ "PROCESSING" | translate }}
     </p>
   </div>
 

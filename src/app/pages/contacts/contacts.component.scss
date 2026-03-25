@@ -53,20 +53,24 @@
 }
 
 .contact-actions {
-  display: flex;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
 }
 
 .call-button,
-.message-button {
-  flex: 1;
+.message-button,
+.edit-button,
+.delete-button {
   text-align: center;
-  padding: 20px;
-  font-size: 20px;
+  padding: 14px;
+  font-size: 16px;
   border-radius: 12px;
   text-decoration: none;
   font-weight: 600;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  border: none;
 }
 
 .call-button {
@@ -79,8 +83,27 @@
   color: white;
 }
 
+.edit-button {
+  background: #f59e0b;
+  color: white;
+}
+
+.delete-button {
+  background: #ef4444;
+  color: white;
+}
+
+.call-button:hover,
+.message-button:hover,
+.edit-button:hover,
+.delete-button:hover {
+  transform: translateY(-1px);
+}
+
 .call-button:active,
-.message-button:active {
+.message-button:active,
+.edit-button:active,
+.delete-button:active {
   transform: scale(0.97);
 }
 
@@ -89,4 +112,99 @@
   color: #ffffffcc;
   display: block;
   margin-top: 4px;
+}
+
+.add-contact {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.add-contact-button {
+  background: #f97316;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease;
+}
+
+.add-contact-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+.add-contact-button:active {
+  transform: scale(0.96);
+}
+
+.contact-form {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form .form-group {
+  margin-bottom: 12px;
+}
+
+.contact-form label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+  color: #374151;
+}
+
+.contact-form input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 16px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.save-button {
+  flex: 1;
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cancel-button {
+  flex: 1;
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.save-button:active,
+.cancel-button:active {
+  transform: scale(0.97);
+}
+
+.contact-phone {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 10px;
 }

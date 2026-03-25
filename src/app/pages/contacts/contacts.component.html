@@ -6,36 +6,62 @@
   </div>
   <h2>{{ "CONTACTS" | translate }}</h2>
 
-  <div class="contact-card">
-    <h3>{{ "DAUGHTER" | translate }}</h3>
+  <div class="add-contact">
+    <button class="add-contact-button" (click)="toggleFormulario()">
+      ➕ Agregar contacto
+    </button>
+  </div>
+
+  <div class="contact-form" *ngIf="mostrarFormulario">
+    <div class="form-group">
+      <label>Nombre</label>
+      <input
+        type="text"
+        [(ngModel)]="nuevoNombre"
+        placeholder="Nombre del contacto"
+      />
+    </div>
+
+    <div class="form-group">
+      <label>Teléfono</label>
+      <input
+        type="tel"
+        [(ngModel)]="nuevoTelefono"
+        placeholder="Número telefónico"
+      />
+    </div>
+
+    <div class="form-actions">
+      <button class="save-button" (click)="guardarContacto()">Guardar</button>
+      <button class="cancel-button" (click)="toggleFormulario()">
+        Cancelar
+      </button>
+    </div>
+  </div>
+
+  <div class="contact-card" *ngFor="let contacto of contactos">
+    <h3>{{ contacto.nombre }}</h3>
+    <p class="contact-phone">{{ contacto.telefono }}</p>
+
     <div class="contact-actions">
-      <button class="call-button" (click)="callContact('1234567890')">
+      <button class="call-button" (click)="callContact(contacto.telefono)">
         📞 {{ "CALL" | translate }}
         <span class="action-sub">{{ "TAP_TO_CALL" | translate }}</span>
       </button>
-      <button class="message-button" (click)="messageContact('1234567890')">
+
+      <button
+        class="message-button"
+        (click)="messageContact(contacto.telefono)"
+      >
         💬 {{ "MESSAGE" | translate }}
         <span class="action-sub">{{ "TAP_TO_MESSAGE" | translate }}</span>
       </button>
-    </div>
-  </div>
 
-  <div class="contact-card">
-    <h3>{{ "DOCTOR" | translate }}</h3>
-    <div class="contact-actions">
-      <button class="call-button" (click)="callContact('1234567890')">
-        📞 {{ "CALL" | translate }}
-        <span class="action-sub">{{ "TAP_TO_CALL" | translate }}</span>
+      <button class="edit-button" (click)="editarContacto(contacto)">
+        ✏️ Editar
       </button>
-    </div>
-  </div>
-
-  <div class="contact-card">
-    <h3>{{ "NEIGHBOR" | translate }}</h3>
-    <div class="contact-actions">
-      <button class="call-button" (click)="callContact('1234567890')">
-        📞 {{ "CALL" | translate }}
-        <span class="action-sub">{{ "TAP_TO_CALL" | translate }}</span>
+      <button class="delete-button" (click)="eliminarContacto(contacto)">
+        🗑️ Eliminar
       </button>
     </div>
   </div>

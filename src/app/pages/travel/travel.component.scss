@@ -92,3 +92,19 @@
 .back-button:active {
   transform: scale(0.96);
 }
+
+.location-status {
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Estado cuando hay ubicación */
+.location-status.ok {
+  color: #10b981; /* verde */
+}
+
+/* Estado cuando NO hay ubicación */
+.location-status.error {
+  color: #ef4444; /* rojo */
+}

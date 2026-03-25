@@ -7,6 +7,24 @@
 
   <h1>{{ "BUY_ESSENTIALS" | translate }}</h1>
   <p class="subtitle">{{ "SHOP_SUBTITLE" | translate }}</p>
+  <p class="subtitle-helper">
+    Elige qué necesitas comprar. Te llevaremos a una tienda confiable para
+    hacerlo fácilmente.
+  </p>
+
+  <div class="favorites" *ngIf="favoritos.length">
+    <h3>⭐ Mis tiendas favoritas</h3>
+
+    <div class="favorite-list">
+      <button
+        class="favorite-item"
+        *ngFor="let fav of favoritos"
+        (click)="abrirFavorito(fav.url)"
+      >
+        {{ fav.nombre }}
+      </button>
+    </div>
+  </div>
 
   <button class="shop-button groceries" (click)="orderGroceries()">
     🛒 {{ "ORDER_GROCERIES" | translate }}

@@ -8,22 +8,22 @@
 
   <p class="travel-description">{{ "BOOK_TRAVEL_DESC" | translate }}</p>
 
+  <p class="location-status" [ngClass]="hasLocation ? 'ok' : 'error'">
+    📍 {{ locationStatus }}
+  </p>
+
   <div class="transport-options">
-    <a href="https://m.uber.com" target="_blank" class="transport-button uber">
+    <button class="transport-button uber" (click)="openUber()">
       🚗 {{ "REQUEST_UBER" | translate }}
       <span class="button-sub">{{ "REQUEST_UBER_SUB" | translate }}</span>
-    </a>
+    </button>
 
-    <a
-      href="https://maps.google.com/?q=taxi"
-      target="_blank"
-      class="transport-button taxi"
-    >
+    <button class="transport-button taxi" (click)="openTaxi()">
       🚕 {{ "FIND_TAXI" | translate }}
       <span class="button-sub">{{ "FIND_TAXI_SUB" | translate }}</span>
-    </a>
+    </button>
 
-    <button class="transport-button family" (click)="callFamily('1234567890')">
+    <button class="transport-button family" (click)="callFamily()">
       👨‍👩‍👧 {{ "CALL_FAMILY" | translate }}
       <span class="button-sub">{{ "CALL_FAMILY_SUB" | translate }}</span>
     </button>

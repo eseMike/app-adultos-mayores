@@ -17,6 +17,9 @@
   "MESSAGES": "Mensajes",
   "VOICE_ASSISTANT": "Asistente de voz",
   "TAP_MICROPHONE": "Toca el micrófono y habla",
+  "MIC_HINT": "Toca el micrófono para hablar",
+  "LISTENING": "Escuchando...",
+  "PROCESSING": "Procesando...",
 
   "RETURN_HOME": "Regresar al inicio",
   "EMERGENCY_TITLE": "Emergencia",

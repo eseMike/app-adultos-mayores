@@ -12,7 +12,24 @@ export class VoiceComponent implements OnInit {
   transcript: string = '';
   response: string = '';
   listening: boolean = false;
+  isProcessing: boolean = false;
   private vibrationInterval: any;
+
+  private startVibrationFeedback() {
+    if (navigator.vibrate) {
+      navigator.vibrate(120);
+      this.vibrationInterval = setInterval(() => {
+        navigator.vibrate(120);
+      }, 300);
+    }
+  }
+
+  private stopVibrationFeedback() {
+    if (this.vibrationInterval) {
+      clearInterval(this.vibrationInterval);
+      this.vibrationInterval = null;
+    }
+  }
 
   constructor(
     private zone: NgZone,
@@ -41,12 +58,8 @@ export class VoiceComponent implements OnInit {
         console.log('Voice recognition started');
         this.zone.run(() => {
           this.listening = true;
-          if (navigator.vibrate) {
-            navigator.vibrate(120);
-            this.vibrationInterval = setInterval(() => {
-              navigator.vibrate(120);
-            }, 300);
-          }
+          this.isProcessing = false;
+          this.startVibrationFeedback();
         });
       };
 
@@ -54,10 +67,8 @@ export class VoiceComponent implements OnInit {
         console.error('Voice recognition error:', event.error);
         this.zone.run(() => {
           this.listening = false;
-          if (this.vibrationInterval) {
-            clearInterval(this.vibrationInterval);
-            this.vibrationInterval = null;
-          }
+          this.isProcessing = false;
+          this.stopVibrationFeedback();
         });
       };
 
@@ -66,31 +77,36 @@ export class VoiceComponent implements OnInit {
 
         this.zone.run(() => {
           this.listening = false;
-          if (this.vibrationInterval) {
-            clearInterval(this.vibrationInterval);
-            this.vibrationInterval = null;
-          }
+          this.stopVibrationFeedback();
+          this.isProcessing = true;
           this.transcript = text;
           this.generateResponse(text);
           this.speakResponse();
+        });
+      };
+
+      this.recognition.onend = () => {
+        this.zone.run(() => {
+          this.listening = false;
+          this.stopVibrationFeedback();
+          // if there is no transcript/response, stop processing
+          if (!this.response) {
+            this.isProcessing = false;
+          }
         });
       };
     }
   }
 
   startListening() {
-    if (this.recognition) {
-      this.zone.run(() => {
-        this.listening = true;
-        if (navigator.vibrate) {
-          navigator.vibrate(120);
-          this.vibrationInterval = setInterval(() => {
-            navigator.vibrate(120);
-          }, 300);
-        }
-      });
-      this.recognition.start();
-    }
+    if (!this.recognition || this.listening) return;
+
+    this.zone.run(() => {
+      this.listening = true;
+      this.isProcessing = false;
+      this.startVibrationFeedback();
+    });
+    this.recognition.start();
   }
 
   generateResponse(text: string) {
@@ -162,6 +178,7 @@ export class VoiceComponent implements OnInit {
 
   speakResponse() {
     if ('speechSynthesis' in window && this.response) {
+      window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(this.response);
 
       // Mapear idioma
@@ -196,6 +213,16 @@ export class VoiceComponent implements OnInit {
         utterance.rate = 0.95; // ligeramente más natural
         utterance.pitch = 1; // tono neutro
         window.speechSynthesis.speak(utterance);
+        utterance.onend = () => {
+          this.zone.run(() => {
+            this.isProcessing = false;
+          });
+        };
+        utterance.onerror = () => {
+          this.zone.run(() => {
+            this.isProcessing = false;
+          });
+        };
       };
 
       if (window.speechSynthesis.getVoices().length === 0) {

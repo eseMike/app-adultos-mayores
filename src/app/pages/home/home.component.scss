@@ -14,7 +14,7 @@
 
 .header {
   text-align: center;
-  padding: 30px 20px 10px;
+  padding: 20px 20px 5px;
 }
 
 .logo {
@@ -29,11 +29,15 @@
 }
 
 .menu-grid {
+  margin-top: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   padding: 20px;
   box-sizing: border-box;
+  align-items: stretch;
+  grid-auto-flow: dense;
+  margin-bottom: 28px;
 }
 
 .full-width {
@@ -55,6 +59,7 @@
   transition:
     transform 0.1s ease,
     box-shadow 0.1s ease;
+  height: 100%;
 }
 
 .menu-card:active {
@@ -108,31 +113,63 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 15px 0;
-  background: white;
+  gap: 8px;
+  padding: 12px 10px;
+  background: rgba(255, 255, 255, 0.96);
   border-top: 1px solid #e5e7eb;
   position: sticky;
   bottom: 0;
   z-index: 10;
-  max-width: 100%;
-  overflow-x: auto; // permitir scroll horizontal si es necesario
+  width: 100%;
   box-sizing: border-box;
+  box-shadow: 0 -4px 14px rgba(0, 0, 0, 0.06);
+  border-radius: 18px 18px 0 0;
 }
 
 .nav-item {
-  font-size: 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-decoration: none;
   color: #374151;
-  padding: 12px 20px;
-  border-radius: 12px;
+  padding: 10px 6px;
+  border-radius: 14px;
+  min-height: 64px;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+  min-width: 0;
+}
+
+.nav-item:hover {
+  background: #f3f4f6;
 }
 
 .nav-item:active {
   transform: scale(0.97);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+.nav-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.nav-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.1;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .voice-assistant {
-  margin: 0 20px 20px;
+  margin: 0 20px 24px;
   background: #ffffff;
   border-radius: 18px;
   padding: 18px 20px;
@@ -182,4 +219,63 @@
   .menu-card p {
     font-size: 16px;
   }
+  .bottom-nav {
+    padding: 10px 8px;
+    gap: 6px;
+  }
+  .nav-item {
+    min-height: 60px;
+    padding: 8px 4px;
+  }
+  .nav-icon {
+    font-size: 20px;
+  }
+  .nav-label {
+    font-size: 9px;
+  }
+}
+
+// Configuration button styles
+.btn-config {
+  padding: 8px 14px;
+  background: #f3f4f6; /* fondo suave gris */
+  color: #374151;
+  border: 2px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-config:hover {
+  background: #e5e7eb;
+}
+
+.btn-config:active {
+  transform: scale(0.95);
+}
+
+.header-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn-logout {
+  padding: 8px 14px;
+  background: #fff3e8;
+  color: #ff7a00;
+  border: 2px solid #ff7a00;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-logout:hover {
+  background: #ffe6cc;
+}
+
+.btn-logout:active {
+  transform: scale(0.95);
 }

@@ -1,0 +1,17 @@
+<div class="preferences">
+  <h1>Preferencias</h1>
+  <p>Selecciona los servicios que deseas tener disponibles en tu app.</p>
+
+  <div class="option">
+    <label>
+      <input type="checkbox" [(ngModel)]="transporte" /> Transporte (Uber /
+      DiDi)
+    </label>
+  </div>
+
+  <div class="option">
+    <label> <input type="checkbox" [(ngModel)]="mandados" /> Mandados </label>
+  </div>
+
+  <button class="btn-primary" (click)="continuar()">Continuar</button>
+</div>

@@ -1,7 +1,14 @@
 <div class="home-container">
   <div class="header">
     <img src="assets/SeniorVital.png" alt="SeniorVital logo" class="logo" />
-    <h1>{{ "HOME" | translate }}</h1>
+    <h1 *ngIf="nombre">Bienvenido {{ nombre }}</h1>
+    <h1 *ngIf="!nombre">{{ "HOME" | translate }}</h1>
+    <div class="header-actions">
+      <button class="btn-config" routerLink="/preferences">
+        ⚙️ Configuración
+      </button>
+      <button class="btn-logout" (click)="logout()">🚪 Cerrar sesión</button>
+    </div>
   </div>
 
   <div class="menu-grid">
@@ -11,28 +18,46 @@
       <p>{{ "EMERGENCY_HELP_DESC" | translate }}</p>
     </div>
 
-    <div class="menu-card card-medicine" routerLink="/voice">
-      <div class="card-icon">🎤</div>
-      <h3 class="card-title">{{ "MEDICINE_REMINDER" | translate }}</h3>
-      <p>{{ "MEDICINE_REMINDER_DESC" | translate }}</p>
-    </div>
-
     <div class="menu-card card-contacts" routerLink="/contacts">
       <div class="card-icon">📞</div>
       <h3 class="card-title">{{ "CONTACTS" | translate }}</h3>
       <p>{{ "CONTACTS_DESC" | translate }}</p>
     </div>
 
-    <div class="menu-card card-travel" routerLink="/travel">
-      <div class="card-icon">🚗</div>
-      <h3 class="card-title">{{ "BOOK_TRAVEL" | translate }}</h3>
-      <p>{{ "BOOK_TRAVEL_DESC" | translate }}</p>
+    <div class="menu-card card-medicine" routerLink="/voice">
+      <div class="card-icon">🎤</div>
+      <h3 class="card-title">{{ "MEDICINE_REMINDER" | translate }}</h3>
+      <p>{{ "MEDICINE_REMINDER_DESC" | translate }}</p>
     </div>
 
-    <div class="menu-card card-shop" routerLink="/shop">
-      <div class="card-icon">🛒</div>
-      <h3 class="card-title">{{ "BUY_ONLINE" | translate }}</h3>
-      <p>{{ "BUY_ONLINE_DESC" | translate }}</p>
+    <div
+      class="menu-card"
+      *ngFor="let opcion of opciones"
+      [ngClass]="{
+        'card-travel': opcion.tipo === 'transporte',
+        'card-shop': opcion.tipo === 'mandados',
+      }"
+      [routerLink]="opcion.tipo === 'transporte' ? '/travel' : '/shop'"
+    >
+      <div class="card-icon">
+        {{ opcion.tipo === "transporte" ? "🚗" : "🛒" }}
+      </div>
+
+      <h3 class="card-title">
+        {{
+          opcion.tipo === "transporte"
+            ? ("BOOK_TRAVEL" | translate)
+            : ("BUY_ONLINE" | translate)
+        }}
+      </h3>
+
+      <p>
+        {{
+          opcion.tipo === "transporte"
+            ? ("BOOK_TRAVEL_DESC" | translate)
+            : ("BUY_ONLINE_DESC" | translate)
+        }}
+      </p>
     </div>
   </div>
 
@@ -45,13 +70,21 @@
   </div>
 
   <div class="bottom-nav">
-    <a class="nav-item" routerLink="/home">{{ "NAV_HOME" | translate }}</a>
-    <a class="nav-item" routerLink="/reminders">{{
-      "NAV_REMINDERS" | translate
-    }}</a>
-    <a class="nav-item" routerLink="/vitals">{{ "NAV_VITALS" | translate }}</a>
-    <a class="nav-item" routerLink="/messages">{{
-      "NAV_MESSAGES" | translate
-    }}</a>
+    <a class="nav-item" routerLink="/home">
+      <div class="nav-icon">🏠</div>
+      <div class="nav-label">{{ "NAV_HOME" | translate }}</div>
+    </a>
+    <a class="nav-item" routerLink="/reminders">
+      <div class="nav-icon">⏰</div>
+      <div class="nav-label">{{ "NAV_REMINDERS" | translate }}</div>
+    </a>
+    <a class="nav-item" routerLink="/vitals">
+      <div class="nav-icon">❤️</div>
+      <div class="nav-label">{{ "NAV_VITALS" | translate }}</div>
+    </a>
+    <a class="nav-item" routerLink="/messages">
+      <div class="nav-icon">💬</div>
+      <div class="nav-label">{{ "NAV_MESSAGES" | translate }}</div>
+    </a>
   </div>
 </div>

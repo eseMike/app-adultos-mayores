@@ -1,0 +1,111 @@
+.register {
+  max-width: 520px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+h1 {
+  font-size: 30px;
+  margin-bottom: 8px;
+  color: #222;
+  font-weight: 700;
+}
+
+p {
+  font-size: 17px;
+  margin-bottom: 25px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 17px;
+  outline: none;
+  transition:
+    border 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+input:focus {
+  border: 1px solid #ff7a00;
+  box-shadow: 0 0 0 2px rgba(255, 122, 0, 0.2);
+}
+
+.emergency-section {
+  margin-top: 25px;
+}
+
+.emergency-section h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.contact {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.contact input {
+  flex: 1;
+}
+
+button {
+  margin-top: 12px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button.btn-primary {
+  width: 100%;
+  background: #ff7a00;
+  color: #fff;
+  margin-top: 25px;
+  font-weight: 600;
+}
+
+button.btn-primary:hover {
+  background: #e96f00;
+}
+
+button:not(.btn-primary) {
+  background: #f1f1f1;
+  color: #333;
+}
+
+button:not(.btn-primary):hover {
+  background: #e0e0e0;
+}
+
+@media (max-width: 600px) {
+  .register {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .contact {
+    flex-direction: column;
+  }
+}

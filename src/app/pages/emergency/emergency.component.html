@@ -8,28 +8,28 @@
 
   <p class="emergency-description">{{ "EMERGENCY_DESC" | translate }}</p>
 
-  <p class="emergency-hint">{{ "EMERGENCY_HINT" | translate }}</p>
-
-  <button class="emergency-button" (click)="confirmCall('1234567890')">
+  <button
+    class="emergency-button"
+    *ngIf="contactoPrincipal"
+    (click)="confirmCall(contactoPrincipal.telefono)"
+  >
     {{ "CALL_FOR_HELP" | translate }}
   </button>
 
   <div class="emergency-contacts">
     <h3>{{ "OTHER_CONTACTS" | translate }}</h3>
 
-    <a class="contact-link" (click)="confirmCall('1234567890')">
-      {{ "DAUGHTER" | translate }}
-      <span class="contact-sub">{{ "TAP_TO_CALL" | translate }}</span>
-    </a>
+    <a
+      class="contact-link"
+      *ngFor="let contacto of otrosContactos"
+      (click)="confirmCall(contacto.telefono)"
+    >
+      <div class="contact-info">
+        <span class="contact-name">{{ contacto.nombre }}</span>
+        <span class="contact-sub">{{ "TAP_TO_CALL" | translate }}</span>
+      </div>
 
-    <a class="contact-link" (click)="confirmCall('1234567890')">
-      {{ "DOCTOR" | translate }}
-      <span class="contact-sub">{{ "TAP_TO_CALL" | translate }}</span>
-    </a>
-
-    <a class="contact-link" (click)="confirmCall('1234567890')">
-      {{ "NEIGHBOR" | translate }}
-      <span class="contact-sub">{{ "TAP_TO_CALL" | translate }}</span>
+      <div class="contact-icon">📞</div>
     </a>
   </div>
 </div>

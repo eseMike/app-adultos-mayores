@@ -22,6 +22,9 @@ import {
   TranslateService,
 } from '@ngx-translate/core';
 import { HttpLoaderFactory } from './core/translate-loader.factory';
+import { RegisterComponent } from './pages/register/register.component';
+import { PreferencesComponent } from './pages/preferences/preferences.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { HttpLoaderFactory } from './core/translate-loader.factory';
     TravelComponent,
     ShopComponent,
     ContactsComponent,
+    RegisterComponent,
+    PreferencesComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

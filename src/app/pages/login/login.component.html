@@ -1,0 +1,32 @@
+<div class="login-container">
+  <h1>Iniciar sesión</h1>
+
+  <p class="login-helper">
+    Bienvenido a SeniorVital 👋<br />
+    Si ya eres usuario, inicia sesión.
+  </p>
+
+  <p class="login-helper">
+    ¿No tienes cuenta?
+    <a routerLink="/register" class="link-register">Regístrate aquí</a>
+  </p>
+
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" [(ngModel)]="email" placeholder="Ingresa tu email" />
+  </div>
+
+  <div class="form-group">
+    <label>Contraseña</label>
+    <input
+      type="password"
+      [(ngModel)]="password"
+      placeholder="Ingresa tu contraseña"
+    />
+  </div>
+
+  <div class="btn-group">
+    <button class="btn-primary" (click)="login()">Ingresar</button>
+    <button class="btn-secondary" routerLink="/register">Crear cuenta</button>
+  </div>
+</div>

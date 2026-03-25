@@ -1,0 +1,114 @@
+.login-container {
+  max-width: 420px;
+  margin: 80px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-container h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+.login-helper {
+  font-size: 15px;
+  color: #555;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.login-helper + .login-helper {
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+.link-register {
+  color: #ff7a00;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link-register:hover {
+  text-decoration: underline;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #ff7a00;
+}
+
+.btn-primary {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  background: #ff7a00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: #e96d00;
+}
+
+.btn-secondary {
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+  background: #fff3e8; /* fondo suave */
+  color: #ff7a00;
+  border: 2px solid #ff7a00;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background: #ffe6cc; /* un poco más fuerte al hover */
+}
+
+/* Ajuste de separación entre botones */
+.btn-primary + .btn-secondary {
+  margin-top: 12px;
+}
+
+.btn-group {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Ajuste extra para mejor alineación en mobile */
+@media (max-width: 480px) {
+  .login-container {
+    margin: 40px 20px;
+    padding: 20px;
+  }
+}
